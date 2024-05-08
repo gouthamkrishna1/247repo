@@ -20,6 +20,7 @@ module "servicebus" {
   sku = var.sku
   role = var.role
   pid = var.pid
+  servicebus_public_network_access_enabled = var.servicebus_public_network_access_enabled
 }
 
 

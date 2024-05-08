@@ -5,7 +5,7 @@ locals {
 
 resource "azurerm_linux_function_app" "function-app" {
   for_each            = var.func_app_config
-  name                = "ssna-func-${var.product}-${terraform.workspace}-${local.region}-${each.key}"
+  name                = "ssl-func-${var.product}-${terraform.workspace}-${local.region}-${each.key}"
   location            = var.location
   resource_group_name = var.resource_group_name
  
@@ -13,6 +13,7 @@ resource "azurerm_linux_function_app" "function-app" {
   storage_account_access_key = var.primary_access_key
   service_plan_id            = var.app_service_id
   public_network_access_enabled = each.value.public_network_access_enabled
+  https_only = true
 
   #need to check from where to fetch value
   app_settings = {

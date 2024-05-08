@@ -29,7 +29,7 @@ variable "func_app_config" {
     }))
 }
 variable "storage_account_name" {
-    type = any
+    type = string
     default = ""
 }
 

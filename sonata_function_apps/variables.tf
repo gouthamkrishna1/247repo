@@ -76,7 +76,7 @@ variable "storage_acc_config" {
 }
 
 variable "storage_account_name" {
-    type = any
+    type = string
     default = ""
 }
 
@@ -283,8 +283,8 @@ variable "queue_config" {
   
 }
 
-variable "storage_account_name" {
-    type = string
-    default = ""
+# variable "storage_account_name" {
+#     type = string
+#     default = ""
   
-}
+# }

@@ -1,7 +1,7 @@
 #Location
 location = "eastus"
 product = "cca"
-resource_group_name = "sitl-rg-prod-eus-cca"
+# resource_group_name = "sitl-rg-prod-eus-cca"
 #Storage Account Configuration
 storage_acc_config = { 
   
@@ -18,8 +18,8 @@ storage_acc_config = {
 #Private Endpoint Configuration
 
 
-subnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-paas-prod-eus-cca"
-private_dns_rg = "sitl-rg-hub-eus-cca"
+# subnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-paas-prod-eus-cca"
+private_dns_rg = "sit-prod-hub-rg"
 
 ttl = 300
 

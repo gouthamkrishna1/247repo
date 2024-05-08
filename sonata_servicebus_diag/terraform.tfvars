@@ -1,0 +1,5 @@
+dest_type = "AzureDiagnostics"
+category_group = "allLogs"
+metrics = "AllMetrics"
+location = "eastus"
+product = "cca"

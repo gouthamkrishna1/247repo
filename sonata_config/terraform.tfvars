@@ -1,0 +1,2 @@
+product = "cca"
+location= "eastus"

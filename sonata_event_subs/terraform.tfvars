@@ -1,7 +1,7 @@
 #the product and location
 location = "eastus"
-
-resource_group_name = "sitl-rg-prod-eus-cca"
+product = "cca"
+# resource_group_name = "sitl-rg-prod-eus-cca"
 
 event_topic = "eventtopic"
 topic_type = "Microsoft.Storage.StorageAccounts"

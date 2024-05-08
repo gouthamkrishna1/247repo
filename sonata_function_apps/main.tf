@@ -212,6 +212,6 @@ module "dns_vnet_link_table_storage_func" {
 module "queue" {
   source = "../modules/queue"
   queue_config = var.queue_config
-  storage_account_name = module.func_app_storage.storage_account_name
+  storage_account_name = module.func_app_storage.storageaccount_resource_properties["func"].name
   
 }

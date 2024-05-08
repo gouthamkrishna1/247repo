@@ -2,7 +2,7 @@
 location = "eastus"
 product = "cca"
 service = "logic"
-resource_group_name = "shub-rg-prod-eus-cca"
+# resource_group_name = "shub-rg-prod-eus-cca"
 
 #Application Insights Configuration
 
@@ -24,7 +24,7 @@ appservice_config = {
 #Storage Account Configuration
 
 storage_acc_config ={ 
-  "loggics" = {
+  "logic" = {
     # storage_acc_name = "sitldevstg2202logic"
     account_tier = "Standard"
     account_replication_type = "LRS"
@@ -38,7 +38,7 @@ storage_acc_config ={
 #Logic App Configuration
 logic_app_config = {
   logicapp = {
-
+    # public_network_access_enabled = true
   }
 }
 
@@ -52,12 +52,12 @@ logic_app_config = {
 #DNS Configuration/Time to Live
 ttl = 300
 
-private_dns_rg = "shub-rg-prod-eus-cca"
+private_dns_rg = "sit-prod-hub-rg"
 
 
-subnet_id = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca/subnets/paas"
-outbound_subnet = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca/subnets/logicapp-outbound"
-scope = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca"
+# subnet_id = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca/subnets/paas"
+# outbound_subnet = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca/subnets/logicapp-outbound"
+# scope = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca"
 
 # eventHub_connectionString = "Endpoint=sb://ssna-eventhubnamespace-cca-dev-eastus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=CKtGdg7n46AQYwsFEhmB96iNROm0UnWOL+AEhEBmpfA="
 
@@ -73,10 +73,10 @@ quota = "5000"
 # vnet_id = "/subscriptions/34b1c36e-d8e8-4bd5-a6f3-2f92a1c0626e/resourceGroups/ssna-rg-cca-dev-eus/providers/Microsoft.Network/virtualNetworks/ssna-vnet-dev-cca-eus"
 # workspace_id = "/subscriptions/34b1c36e-d8e8-4bd5-a6f3-2f92a1c0626e/resourcegroups/ssna-rg-cca-dev-eus/providers/microsoft.operationalinsights/workspaces/tfsloganalytics"
 
-link_name = "dns_vnet_link"
-private_dns_zone = "privatelink.azurewebsites.net"
-private_dns_zone_storage = "privatelink.blob.core.windows.net"
-private_dns_zone_storage_file = "privatelink.file.core.windows.net"
-private_dns_zone_storage_queue = "privatelink.queue.core.windows.net"
-private_dns_zone_storage_table = "privatelink.table.core.windows.net"
-vnet_id = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca"
+# link_name = "dns_vnet_link"
+# private_dns_zone = "privatelink.azurewebsites.net"
+# private_dns_zone_storage = "privatelink.blob.core.windows.net"
+# private_dns_zone_storage_file = "privatelink.file.core.windows.net"
+# private_dns_zone_storage_queue = "privatelink.queue.core.windows.net"
+# private_dns_zone_storage_table = "privatelink.table.core.windows.net"
+# vnet_id = "/subscriptions/b1ac7a5f-1633-402e-9bc3-ba2f537ce652/resourceGroups/shub-rg-prod-eus-cca/providers/Microsoft.Network/virtualNetworks/shub-vnet-prod-eus-cca"

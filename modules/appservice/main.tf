@@ -1,6 +1,6 @@
 resource "azurerm_service_plan" "app_service_plan" {
   # for_each = var.appservice_config
-  name                = "shub-${var.service}-asp-${var.product}-${terraform.workspace}-${var.location}"
+  name                = "ssl-${var.service}-asp-${var.product}-${terraform.workspace}-${var.location}"
   resource_group_name = var.resource_group_name
   os_type = var.appservice_config.os_type
   sku_name = var.appservice_config.sku_name

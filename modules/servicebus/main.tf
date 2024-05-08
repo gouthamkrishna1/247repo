@@ -1,11 +1,11 @@
 resource "azurerm_servicebus_namespace" "servicebus_namespace" {
-  name                = "ssna-sbns-${var.product}-${terraform.workspace}-${var.location}"
+  name                = "ssl-sbns-${var.product}-${terraform.workspace}-${var.location}"
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = var.sku
   # premium_messaging_partitions = 1
   capacity = 1
-  zone_redundant = true
+  zone_redundant = false #applies to to true as westus doesnot support zone redundancy
 
   network_rule_set {
     trusted_services_allowed = var.trusted_services_allowed
@@ -34,7 +34,7 @@ resource "azurerm_servicebus_topic" "servicebus_topic" {
 }
 
 resource "azurerm_servicebus_subscription" "servicebus_subscription" {
-  name               = "ssna-sbts-${var.product}-${terraform.workspace}-${var.location}"
+  name               = "ssl-sbts-${var.product}-${terraform.workspace}-${var.location}"
   topic_id           = azurerm_servicebus_topic.servicebus_topic.id
   max_delivery_count = 100
 
