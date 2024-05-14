@@ -9,3 +9,13 @@ output "logic_app_principal_id" {
 output "logic_name" {
   value = [ for k, v in var.logic_app_config : "${azurerm_logic_app_standard.logic_app[k].name}" ]
 }
+
+# output "logicapp_id" {
+#   value = {for k,v in var.var.logic_app_config:"${azurerm_logic_app_standard.logic_app.id}"}
+# }
+
+output "logic_resource_key" {
+  value = {for k, v in var.logic_app_config: k => {
+    name = azurerm_logic_app_standard.logic_app[k].name
+    id = azurerm_logic_app_standard.logic_app[k].id}}
+}

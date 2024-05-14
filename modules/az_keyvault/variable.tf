@@ -13,6 +13,17 @@ variable "resource_group_name" {
   default = ""
 }
 
+variable "tenant_id" {
+  type = any
+  default = ""
+}
+
+variable "object_id" {
+  type = any
+  default = ""
+}
+
+
 
 
 variable "key_vault_config" {

@@ -9,3 +9,7 @@ output "resource_id" {
 output "resource_name" {
   value = azurerm_servicebus_namespace.servicebus_namespace.name
 }
+
+output "id_servicebus" {
+  value = azurerm_servicebus_namespace.servicebus_namespace.id
+}

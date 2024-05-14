@@ -8,6 +8,6 @@ terraform {
     resource_group_name = "rg-${terraform.workspace}-backend"
     storage_account_name = "st${terraform.workspace}backend"
     container_name = "tfstate"
-    key = "${local.region}/func/${terraform.workspace}/default.tfstate"
+    key = "${local.region}/logic/${terraform.workspace}/default.tfstate"
   }
 }

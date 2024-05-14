@@ -30,7 +30,7 @@ variable "pid" {
 
 variable "servicebus_public_network_access_enabled" {
   type = any
-  default = false
+  default = ""
 }
 
 #private endpoint

@@ -11,14 +11,15 @@ locals {
 #------------------------------------------
 # Remote State file for Resource Group
 #------------------------------------------
-data "terraform_remote_state" "function_app" {
+data "terraform_remote_state" "azconfig" {
   backend = "azurerm"
   config = {
     resource_group_name = "rg-${terraform.workspace}-backend"
     storage_account_name = "st${terraform.workspace}backend"
     container_name = "tfstate"
-    key                  = "${local.region}/func/${terraform.workspace}/default.tfstateenv:${terraform.workspace}"
+    key                  = "${local.region}/config/${terraform.workspace}/default.tfstateenv:${terraform.workspace}"
     # key = "eastus/rg/default/default.tfstate"
+ 
  
   }
 }
@@ -26,13 +27,14 @@ data "terraform_remote_state" "function_app" {
 # Resource group name outputs
 #---------------------------------------
  
-output "function_id" {
-  value = data.terraform_remote_state.function_app.outputs.function_app_ids
-  description = "resoucrce group name output for remotestate call"
+output "tenant_id" {
+  value = data.terraform_remote_state.azconfig.outputs.tenant_id
+  description = "tenant id output for remotestate call"
 }
 
-output "storage_id" {
-  value = data.terraform_remote_state.function_app.outputs.storage_account_key
+output "object_id" {
+  value = data.terraform_remote_state.azconfig.outputs.object_id
+  description = "object id output for remotestate call"
 }
 
 variable "location" {

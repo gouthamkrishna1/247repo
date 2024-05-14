@@ -5,3 +5,8 @@ output "private_end_point_function_storage_output" {
 output "function_app_ids" {
   value = module.function_app.function_app_id
 }
+
+output "storage_account_key" {
+  value= module.func_app_storage.storageaccount_resource_properties
+  sensitive = true
+}

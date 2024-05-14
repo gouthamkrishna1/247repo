@@ -16,7 +16,7 @@ resource "azurerm_servicebus_namespace" "servicebus_namespace" {
     Terraform_created = "yes"
   }
 
-  # public_network_access_enabled = var.servicebus_public_network_access_enabled
+  public_network_access_enabled = var.servicebus_public_network_access_enabled
 }
 
 resource "azurerm_servicebus_topic" "servicebus_topic" {

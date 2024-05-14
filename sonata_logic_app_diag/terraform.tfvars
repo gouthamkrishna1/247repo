@@ -1,6 +1,6 @@
 dest_type = "AzureDiagnostics"
-category_group = "allLogs"
-categories = [""]
+categories= ["FunctionAppLogs","WorkflowRuntime"]
+# category_group = null
 metrics = "AllMetrics"
 location = "eastus"
 product = "cca"

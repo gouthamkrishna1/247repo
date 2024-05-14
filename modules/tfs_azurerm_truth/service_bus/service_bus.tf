@@ -31,6 +31,9 @@ output "servicebus_namespace" {
   description = "servicebus namespace output for remotestate call"
 }
 
+output "servicebus_id" {
+  value = data.terraform_remote_state.servicebus.outputs.servicebus_key_id
+}
 
 variable "location" {
   type = string

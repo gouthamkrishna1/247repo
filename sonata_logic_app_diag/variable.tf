@@ -27,3 +27,13 @@ variable "categories" {
   type = list(string)
   default = [""]
 }
+
+variable "product" {
+  type = string
+  default = ""
+}
+
+variable "location" {
+  type = string
+  default = ""
+}
