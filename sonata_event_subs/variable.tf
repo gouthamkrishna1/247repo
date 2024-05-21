@@ -14,6 +14,11 @@ variable "location" {
     default = ""
 }
 
+variable "product" {
+    type =any
+    default = ""
+}
+
 variable "source_id" {
     type =any
     default = ""
@@ -47,4 +52,9 @@ variable "webhook_url" {
 variable "topic_type" {
   type = any
   default = ""
+}
+
+variable "function_id" {
+    type =any
+    default = ""
 }

@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network" "vnet" {
-  name                = "ssna-vnet-${var.product}-${terraform.workspace}-${var.location}"
+  name                = "ssl-vnet-${var.product}-${terraform.workspace}-${var.location}"
   address_space       = var.address_space
   location            = var.location
   resource_group_name =var.resource_group_name
@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "vnet" {
  
 resource "azurerm_subnet" "subnet" {
     for_each = var.subnet_config
-  name                 = "ssna-snet-${each.key}-${var.product}-${terraform.workspace}-${var.location}"
+  name                 = "ssl-snet-${each.key}-${var.product}-${terraform.workspace}-${var.location}"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = each.value.address_prefixes

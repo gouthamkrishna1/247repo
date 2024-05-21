@@ -18,14 +18,35 @@ variable "product" {
   default = ""
 }
 
-variable "trusted_services_allowed" {
-  type = bool
-  default = true
+variable "servicebusname_config" {
+  type = map(object({
+    sku = optional(string, "Premium")
+    trusted_services_allowed = optional(bool,true)
+    servicebus_public_network_access_enabled = optional(bool, false)
+  }))
+}
+
+variable "servicebustopic_config" {
+  type = map(object({
+    rddt = optional(bool, true)
+  }))
+}
+
+variable "servicebussubs_config" {
+  type = map(object({
+    dlf = optional(bool, false)
+  }))
 }
 
 variable "role" {
   type = string
   default = ""
+}
+
+variable "servicebus_role_config" {
+  description = "Configuration map for Role Assignments"
+  type = map(object({
+  }))
 }
 
 variable "pid" {
@@ -35,5 +56,5 @@ variable "pid" {
 
 variable "servicebus_public_network_access_enabled" {
   type = any
-  default = false
+  default = ""
 }

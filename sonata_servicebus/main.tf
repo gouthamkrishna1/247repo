@@ -17,9 +17,14 @@ module "servicebus" {
   location = var.location
   product = var.product
   resource_group_name = module.rg.rg_name
+  servicebusname_config = var.servicebusname_config
+  servicebustopic_config = var.servicebustopic_config
+  servicebussubs_config = var.servicebussubs_config
+  servicebus_role_config = var.servicebus_role_config
   sku = var.sku
   role = var.role
   pid = var.pid
+  servicebus_public_network_access_enabled = var.servicebus_public_network_access_enabled
 }
 
 
@@ -50,3 +55,11 @@ module "dns_vnet_link" {
   registration_enabled =var.registration_enabled
 
 }
+
+# module "servicebus_role" {
+#   source = "../modules/iam"
+
+#   resource_principal_id = var.resource_principal_id
+#   role_definition_name = "Azure Service Bus Data Receiver"
+#   scope = module.servicebus.id_servicebus
+# }

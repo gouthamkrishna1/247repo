@@ -4,7 +4,7 @@ locals {
 resource "azurerm_logic_app_standard" "logic_app" {
   for_each                   = var.logic_app_config
   # name                       = "ssna-logicapp-${var.product}-${terraform.workspace}-${var.location}"
-  name                       = "shub-logicapps-${var.product}-${terraform.workspace}-${var.location}"
+  name                       = "ssl-logicapp-${var.product}-${terraform.workspace}-${var.location}"
   location                   = var.location
   resource_group_name        = var.resource_group_name
   app_service_plan_id        = var.lg_app_service_id
@@ -12,6 +12,10 @@ resource "azurerm_logic_app_standard" "logic_app" {
   storage_account_access_key = var.lg_primary_access_key
   version = "~4"
   https_only = true
+
+  # site_config {
+    
+  # }
   
   # lifecycle {
   #   ignore_changes = [ 
@@ -19,14 +23,18 @@ resource "azurerm_logic_app_standard" "logic_app" {
   #    ]
   # }
 
-  site_config{
-    # always_on = true
-    public_network_access_enabled = each.value.public_network_access_enabled
-    use_32_bit_worker_process = false
-    vnet_route_all_enabled = "1"
-    # ip_restriction = each.value.ip_address
-    
-  }
+
+  # site_config{
+  #   # always_on = true
+  #   public_network_access_enabled = each.value.public_network_access_enabled
+  #   use_32_bit_worker_process = false
+  #   vnet_route_all_enabled = "1"
+  #   # ip_restriction = each.value.ip_address 
+  # }
+
+  # site{
+  #   public_network_access_enabled=true
+  # }
 
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"     = each.value.FUNCTIONS_WORKER_RUNTIME
@@ -34,8 +42,8 @@ resource "azurerm_logic_app_standard" "logic_app" {
     "APPINSIGHTS_INSTRUMENTATIONKEY" =  var.connection_string
     # "WEBSITE_VNET_ROUTE_ALL"= "1"
     "WEBSITE_CONTENTOVERVNET"= "1"
-    "AzureBlob_blobStorageEndpoint" = "https://ssnast${var.product}${terraform.workspace}${local.region}client.blob.core.windows.net"
-    "serviceBus_fullyQualifiedNamespace" = "ssna-sbns-${var.product}-${terraform.workspace}-${var.location}.servicebus.windows.net"
+    "AzureBlob_blobStorageEndpoint" = "https://${var.blobendpoint}.blob.core.windows.net" #"https://sslst${var.product}${terraform.workspace}${local.region}client.blob.core.windows.net"
+    "serviceBus_fullyQualifiedNamespace" = "${var.servicebus}.servicebus.windows.net" #"ssl-sbns-${var.product}-${terraform.workspace}-${var.location}.servicebus.windows.net"
     # "eventHub_connectionString" = var.eventHub_connectionString
     # "Smtp_enableSSL" = "${each.value.Smtp_enableSSL}"
     # "Smtp_password" = "${each.value.Smtp_password}"
@@ -47,7 +55,6 @@ resource "azurerm_logic_app_standard" "logic_app" {
   identity {
     type = "SystemAssigned"
   }
-  
 }
 
 

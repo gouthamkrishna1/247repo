@@ -7,7 +7,7 @@ resource "azurerm_storage_account" "storageacc" {
   resource_group_name      = var.resource_group_name
   location                 = var.location
 
-  name                     = "shubst${var.product}${terraform.workspace}${local.region}${each.key}" 
+  name                     = "sslst${var.product}${terraform.workspace}${local.region}${each.key}" 
    #each.value. #tfsdevccaeusloghicapp
   account_tier             = each.value.account_tier
   account_replication_type = each.value.account_replication_type

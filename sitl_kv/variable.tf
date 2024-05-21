@@ -13,6 +13,20 @@ variable "resource_group_name" {
   default = ""
 }
 
+variable "tenant_id" {
+  type = any
+  default = ""
+}
+
+variable "object_id" {
+  type = any
+  default = ""
+}
+# variable "subs_id" {
+#   type = any
+#   default = ""
+# }
+
 variable "key_vault_config" {
   type = map(object({
     enabled_for_disk_encryption = optional(bool,true)

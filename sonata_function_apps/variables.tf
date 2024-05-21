@@ -76,7 +76,7 @@ variable "storage_acc_config" {
 }
 
 variable "storage_account_name" {
-    type = any
+    type = string
     default = ""
 }
 
@@ -275,16 +275,47 @@ variable "vnet_id" {
 # }
 
 
-variable "queue_config" {
-    type = map(object({
-      queue_name = string
-      # storage_account_name = string
-    }))
+# variable "queue_config" {
+#     type = map(object({
+#       queue_name = string
+#       # storage_account_name = string
+#     }))
   
-}
+# }
 
-variable "storage_account_name" {
-    type = string
-    default = ""
+# variable "storage_account_name" {
+#     type = string
+#     default = ""
   
-}
+# }
+
+# variable "diagnostic_config" {
+#   type = map(object({
+#     target_resource_id = string
+#   }))
+# }
+
+# variable "log_id" {
+#   type = string
+#   default = ""
+# }
+
+# variable "dest_type" {
+#   type = string
+#   default = ""
+# }
+
+# variable "category_group" {
+#   type = string
+#   default = ""
+# }
+
+# variable "metrics" {
+#  type = string
+#  default = ""
+# }
+
+# variable "categories" {
+#   type = list(string)
+#   default = [""]
+# }

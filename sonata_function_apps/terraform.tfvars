@@ -13,8 +13,8 @@ appinsights_config = {
 appservice_config = {
     # app_service_name = "tfsfuncappservice"
     os_type = "Linux"
-    sku_name = "P1v3"
-    zone_enable = true
+    sku_name = "P3v3"
+    zone_enable = false
     worker_count = null
     max_worker = null
 }
@@ -94,13 +94,21 @@ func_app_config = {
 }
 
 
-queue_config= {
-    queue1={
-      queue_name = "wf-redact-queue"
-      # storage_account_name = 
-    }
+# queue_config= {
+#     queue1={
+#       queue_name = "wf-redact-queue"
+#       # storage_account_name = 
+#     },
+#     queue2={
+#       queue_name = "wf-analyse-queue"
+#       # storage_account_name = 
+#     },
+#     queue3={
+#       queue_name = "wf-transcribe-queue"
+#       # storage_account_name = 
+#     }
   
-}
+# }
 
 
 #Private Endpoint Configuration
@@ -135,17 +143,26 @@ log_name = "tfsloganalytics"
 sku = "PerGB2018"
 retention = "30"
 
-private_dns_rg = "hub-dns-rg"
+private_dns_rg = "sit-prod-hub-rg"
 
+# subnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-paas-prod-eus-cca"
+# outbound_subnet = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-func-outbound-prod-eus-cca"
+# scope = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca"
 
-subnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-paas-prod-eus-cca"
-outbound_subnet = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca/subnets/sitl-snet-func-outbound-prod-eus-cca"
-scope = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca"
-
-link_name = "vnet_link"
+link_name = "dns_vnet_link"
 private_dns_zone = "privatelink.azurewebsites.net"
 private_dns_zone_storage = "privatelink.blob.core.windows.net"
 private_dns_zone_storage_file = "privatelink.file.core.windows.net"
 private_dns_zone_storage_queue = "privatelink.queue.core.windows.net"
 private_dns_zone_storage_table = "privatelink.table.core.windows.net"
-vnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca"
+# vnet_id = "/subscriptions/48986b2e-5349-4fab-a6e8-d5f02072a4b8/resourceGroups/sitl-rg-prod-eus-cca-vnet/providers/Microsoft.Network/virtualNetworks/sitl-vnet-prod-eus-cca"
+
+#Diagnostic settings
+# diagnostic_config = {
+#   "config1" = {
+    
+#   }
+# }
+# dest_type = "AzureDiagnostics"
+# categories= ["Function Application Log"]
+# metrics = "AllMetrics"

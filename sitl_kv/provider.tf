@@ -2,18 +2,13 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-    #   version = "3.37.0"
+      version = "3.87.0"
     }
   }
 }
 
 provider "azurerm" {
-    subscription_id = "48986b2e-5349-4fab-a6e8-d5f02072a4b8"
-
-  features {
-    # key_vault {
-    #   purge_soft_delete_on_destroy    = true
-    #   recover_soft_deleted_key_vaults = true
-    # }
-  }
+    subscription_id = "3f8742cf-d078-4c0f-87c5-7c30b5e66509"
+    tenant_id = "7571a489-bd29-4f38-b9a6-7c880f8cddf0"
+  features {}
 }

@@ -14,6 +14,11 @@ variable "location" {
     default = ""
 }
 
+variable "function_id" {
+    type =any
+    default = ""
+}
+
 variable "source_id" {
     type =any
     default = ""

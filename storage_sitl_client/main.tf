@@ -1,6 +1,19 @@
+module "rg" {
+  source = "../modules/tfs_azurerm_truth/rg"
+
+  product = var.product
+  location = var.location
+}
+
+module "vnet" {
+  source = "../modules/tfs_azurerm_truth/network"
+  product = var.product
+  location = var.location
+}
+
 module "storage_acc" {
     source = "../modules/storage_account"
-    resource_group_name = var.resource_group_name
+    resource_group_name = module.rg.rg_name
     location = var.location
     storage_acc_config = var.storage_acc_config
     product = var.product
@@ -11,10 +24,10 @@ module "private_endpoint" {
     source = "../modules/private_end_point"
     private_endpoint_config = ["blob","file","queue","table"]
     is_manual_connection = false
-    resource_group_name = var.resource_group_name
+    resource_group_name = module.rg.rg_name
     location = var.location
     resource_key = module.storage_acc.storageaccount_resource_id
-    subnet_id = var.subnet_id
+    subnet_id = module.vnet.subnet_id.paas.id
 }
 
 

@@ -26,7 +26,7 @@ variable "logic_app_config" {
         # Smtp_port = optional(string,null)
         # Smtp_serverAddress = optional(string,null)
         # Smtp_username = optional(string,null)
-        public_network_access_enabled = optional(bool,true)
+        # public_network_access_enabled = optional(bool,true)
         
         # ip_address = optional(list(string), ["0.0.0.0/0"])
     }))
@@ -41,6 +41,16 @@ variable "location" {
 # variable "product" {
 #     type = any
 # }
+
+variable "blobendpoint" {
+  type = string
+  default = ""
+}
+
+variable "servicebus" {
+  type = any
+  default = ""
+}
 
 variable "resource_group_name" {
   type = any

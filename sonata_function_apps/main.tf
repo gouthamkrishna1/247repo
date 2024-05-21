@@ -205,13 +205,15 @@ module "dns_vnet_link_table_storage_func" {
 
 
 ############################################################
-#Queue Creation
+#Diagnostic Settings
 ############################################################
 
+# module "func_diag" {
+#   source = "../modules/diagonostic_setting"
 
-module "queue" {
-  source = "../modules/queue"
-  queue_config = var.queue_config
-  storage_account_name = module.func_app_storage.storage_account_name
-  
-}
+#   diagnostic_config = var.diagnostic_config
+#   log_id = module.loganalytics_workspace.loganalytics_id
+#   dest_type = var.dest_type
+#   categories = var.categories
+#   metrics = var.metrics
+# }
